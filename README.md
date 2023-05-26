@@ -1,4 +1,4 @@
-# Multiplex-Imaging-Registration
+# Massively Parallel 4i Imaging Registration
 
 A collection of scripts designed to perform registration on a large amount of image data in parallel on a HPC cluster.
 
