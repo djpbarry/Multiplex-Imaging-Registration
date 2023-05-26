@@ -8,7 +8,7 @@ The underlying registration is performed using [Fast4DReg](https://github.com/gu
 
 ## Instructions
 
-### Building image stacks
+### Step 1: Building image stacks
 
 The `fiji_stack_building.sh` script is designed to assemble single plane images into a stacks for input into Fast4DReg. We wrote this script to process images output from [Iterative Indirect Immunofluorescence Imaging (4i)](https://doi.org/10.1126/science.aar7042), but it could be easily adapted to process images from other sources.
 
@@ -57,3 +57,16 @@ Finally, line 13 needs to updated with the path to your FIJI installation, the p
 ```shell
 <path to fiji installation>/ImageJ-linux64 -Xmx4G -- --headless --console -macro "<path to macro>/build_stacks.ijm" "<path to output directory>,${files[$SLURM_ARRAY_TASK_ID]}"
 ```
+### Step 2: Estimate XY-misalignment using reference channel
+
+Run the `estimate_correction.sh` to register a reference channel (usually DAPI). This will require updating...
+* line 10 to point to the output directory from Step 1
+* line 6 to include the number of reference stacks
+* line 13 to point to your FIJI installation and the location of the relevant Fast4DReg script.
+
+### Step 2: Estimate XY-misalignment using reference channel
+
+Run the `apply_correction.sh` to register all remaining channels. This will require updating line 10 to point to the output directory from Step 1 and updating line 13 to point to your FIJI installation and the location of the relevant Fast4DReg script.
+* line 10 to point to the output directory from Step 1
+* line 6 to include the number of tif files in the output directory from Step 1
+* line 28 to point to your FIJI installation, the location of the relevant Fast4DReg script and the path to a results directory.
