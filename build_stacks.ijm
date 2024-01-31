@@ -26,6 +26,9 @@ print("Bit Depth: " + bits + "\n");
 
 close("*");
 
+print("Processing " + fileRef);
+buildStack(inputDir, rounds, File.getName(fileRef), outputDir);
+
 print("Done");
 
 setBatchMode(false);
