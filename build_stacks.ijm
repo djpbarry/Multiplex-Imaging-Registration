@@ -6,6 +6,19 @@ inputDir = inputs[0];
 outputDir = inputs[1];
 fileRef = inputs[2];
 
+if(!(File.isDirectory(inputDir) && File.exists(inputDir))){
+	print(inputDir + " is not a valid directory - exiting.");
+	exit;
+}
+if(!(File.isDirectory(outputDir) && File.exists(outputDir))){
+	print(outputDir + " is not a valid directory - exiting.");
+	exit;
+}
+if(!File.exists(fileRef)){
+	print(fileRef + " is not a valid file - exiting.");
+	exit;
+}
+
 rounds = getFileList(inputDir);
 
 print(rounds.length + " staining rounds found.");
