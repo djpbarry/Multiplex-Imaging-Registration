@@ -57,12 +57,16 @@ Finally, line 13 needs to updated with the path to your FIJI installation, the p
 ```shell
 <path to fiji installation>/ImageJ-linux64 -Xmx4G -- --headless --console -macro "<path to macro>/build_stacks.ijm" "<path to output directory>,${files[$SLURM_ARRAY_TASK_ID]}"
 ```
+If everything runs successfully, then you should see TIF stacks appearing in your output directory.
+
 ### Step 2: Estimate XY-misalignment using reference channel
 
 Run the `estimate_correction.sh` to register a reference channel (usually DAPI). This will require updating...
 * line 10 to point to the output directory from Step 1
 * line 6 to include the number of reference stacks
-* line 13 to point to your FIJI installation and the location of the relevant Fast4DReg script.
+* line 13 to point to your FIJI installation and the location of the relevant Fast4DReg script (`channel_estimate+apply.ijm`).
+
+If this step runs successfully, you should see folders of results appearing in your output directory from Step 1.
 
 ### Step 2: Estimate XY-misalignment using reference channel
 
