@@ -74,3 +74,5 @@ Run `apply_correction.sh` to register all remaining channels. This will require 
 * line 10 to point to the output directory from Step 1
 * line 6 to include the number of tif files in the output directory from Step 1
 * line 29 to point to your FIJI installation, the location of the relevant Fast4DReg script (`channel_apply.ijm`) and the path to a results directory.
+
+If this step runs successfully, you should see TIF stacks appearing in the specified results directory.
