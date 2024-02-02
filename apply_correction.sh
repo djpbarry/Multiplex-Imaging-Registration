@@ -7,14 +7,14 @@
 #SBATCH --partition=cpu
 #SBATCH --mem=4G
 
-outputPath="/nemo/stp/lm/working/barryd/hpc/test/test_outputs"
-files=("$outputPath"/*.tif)
+inputStacksDir="/nemo/stp/lm/working/barryd/hpc/test/test_outputs"
+files=("$inputStacksDir"/*.tif)
 
 IFS="--"
 
 read -a strarr <<< "${files[$SLURM_ARRAY_TASK_ID]}"
 
-dapiPath=$(find "$outputPath" -path "*${strarr[2]}--${strarr[4]}--${strarr[6]}--${strarr[8]}*" -type d)
+dapiPath=$(find "$inputStacksDir" -path "*${strarr[2]}--${strarr[4]}--${strarr[6]}--${strarr[8]}*" -type d)
 dapiFolder=$(basename "${dapiPath}")
 
 IFS="_"
