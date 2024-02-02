@@ -7,13 +7,14 @@
 #SBATCH --partition=cpu
 #SBATCH --mem=4G
 
-files=(/nemo/stp/lm/working/barryd/Working_Data/Santos/Elias/Compiled_Stacks/*.tif)
+outputPath="/nemo/stp/lm/working/barryd/hpc/test/test_outputs"
+files=("$outputPath"/*.tif)
 
 IFS="--"
 
 read -a strarr <<< "${files[$SLURM_ARRAY_TASK_ID]}"
 
-dapiPath="${strarr[0]}--${strarr[2]}--${strarr[4]}--${strarr[6]}--${strarr[8]}--DAPI_2023-May-25-001"
+dapiPath=$(find "$outputPath" -path "*${strarr[2]}--${strarr[4]}--${strarr[6]}--${strarr[8]}*" -type d)
 dapiFolder=$(basename "${dapiPath}")
 
 IFS="_"
@@ -25,4 +26,4 @@ IFS=" "
 settingsFile="$dapiPath/${strarr2[0]}_${strarr2[1]}_settings.csv"
 
 ml Java/1.8
-/nemo/stp/lm/working/barryd/hpc/java/fiji/ImageJ-linux64 -Xmx4G -- --ij2 --headless --console --run /nemo/stp/lm/working/barryd/hpc/java/fiji/plugins/Fast4DReg/channel_apply.ijm 'files='\""${files[$SLURM_ARRAY_TASK_ID]}"\"',settings_file_path='\""$settingsFile"\"',results_path="/nemo/stp/lm/working/barryd/Working_Data/Santos/Elias/Aligned_Stacks"'
+/nemo/stp/lm/working/barryd/hpc/java/fiji/ImageJ-linux64 -Xmx4G -- --ij2 --headless --console --run /nemo/stp/lm/working/barryd/hpc/java/fiji/plugins/Fast4DReg/channel_apply.ijm 'files='\""${files[$SLURM_ARRAY_TASK_ID]}"\"',settings_file_path='\""$settingsFile"\"',results_path="/nemo/stp/lm/working/barryd/hpc/test/aligned_stacks"'
