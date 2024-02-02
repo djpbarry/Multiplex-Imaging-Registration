@@ -66,11 +66,11 @@ Run the `estimate_correction.sh` to register a reference channel (usually DAPI).
 * line 6 to include the number of reference stacks
 * line 13 to point to your FIJI installation and the location of the relevant Fast4DReg script (`channel_estimate+apply.ijm`).
 
-If this step runs successfully, you should see folders of results appearing in your output directory from Step 1.
+If this step runs successfully, you should see folders of results appearing in your output directory from Step 1, including settings files and aligned stacks (for the reference channel).
 
-### Step 2: Estimate XY-misalignment using reference channel
+### Step 3: Apply XY-alignment calculated in Step 2 to remaining channels
 
-Run the `apply_correction.sh` to register all remaining channels. This will require updating line 10 to point to the output directory from Step 1 and updating line 13 to point to your FIJI installation and the location of the relevant Fast4DReg script.
+Run `apply_correction.sh` to register all remaining channels. This will require updating...
 * line 10 to point to the output directory from Step 1
 * line 6 to include the number of tif files in the output directory from Step 1
-* line 28 to point to your FIJI installation, the location of the relevant Fast4DReg script and the path to a results directory.
+* line 29 to point to your FIJI installation, the location of the relevant Fast4DReg script (`channel_apply.ijm`) and the path to a results directory.
