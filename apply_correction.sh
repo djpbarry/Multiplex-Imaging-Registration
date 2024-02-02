@@ -26,4 +26,4 @@ IFS=" "
 settingsFile="$dapiPath/${strarr2[0]}_${strarr2[1]}_settings.csv"
 
 ml Java/1.8
-/nemo/stp/lm/working/barryd/hpc/java/fiji/ImageJ-linux64 -Xmx4G -- --ij2 --headless --console --run /nemo/stp/lm/working/barryd/hpc/java/fiji/plugins/Fast4DReg/channel_apply.ijm 'files='\""${files[$SLURM_ARRAY_TASK_ID]}"\"',settings_file_path='\""$settingsFile"\"',results_path="/nemo/stp/lm/working/barryd/hpc/test/aligned_stacks"'
+/nemo/stp/lm/working/barryd/hpc/java/fiji/ImageJ-linux64 -Xmx4G -- --ij2 --headless --console --run ./channel_apply.ijm 'files='\""${files[$SLURM_ARRAY_TASK_ID]}"\"',settings_file_path='\""$settingsFile"\"',results_path="/nemo/stp/lm/working/barryd/hpc/test/aligned_stacks"'
