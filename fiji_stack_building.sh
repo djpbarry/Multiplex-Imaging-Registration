@@ -10,4 +10,4 @@
 files=(/nemo/stp/lm/inputs/santoss/Elias\ Copin/Multiplexed_imaging_data/OM_96w_8seq_20210706_4i_16th_stain_Bry_488_pS10H3_563_MASTL_647_001/data/*.tif)
 
 ml Java/1.8
-/nemo/stp/lm/working/barryd/hpc/java/fiji/ImageJ-linux64 -Xmx4G -- --headless --console -macro "/nemo/stp/lm/working/barryd/Working_Data/Santos/Elias/scripts/build_stacks.ijm" "/nemo/stp/lm/inputs/santoss/Elias Copin/Multiplexed_imaging_data,/nemo/stp/lm/working/barryd/Working_Data/Santos/Elias/Compiled Stacks,${files[$SLURM_ARRAY_TASK_ID]}"
+/nemo/stp/lm/working/barryd/hpc/java/fiji/ImageJ-linux64 -Xmx4G -- --headless --console -macro "./build_stacks.ijm" "/nemo/stp/lm/inputs/santoss/Elias Copin/Multiplexed_imaging_data,/nemo/stp/lm/working/barryd/Working_Data/Santos/Elias/Compiled Stacks,${files[$SLURM_ARRAY_TASK_ID]}"
