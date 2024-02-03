@@ -43,19 +43,23 @@ parent 4i directory
 |       ⋮
 |       |   Day#_BMP--W#####--P#####--Z#####--T#####--Channel_n.tif
 ```
-To process such data, the `fiji_stack_building.sh` simply needs to updated as follows and then submitted to a SLURM job scheduler.
+To process such data, `fiji_stack_building.sh` needs to updated as follows and then submitted to a SLURM job scheduler:
 
-Line 10 needs to be edited to point to one of the data directories illustrated above:
+1. Line 11 needs to be edited to point to the parent directory as illustrated above:
 ```shell
-files=(parent 4i directory/Staining Round #/data/*.tif)
+parentDir=(<path to parent 4i directory>)
 ```
-Line 6 needs to be updated with the number of tif files in one of the data directories. It is assumed the the number of files in each data directory is the same - if this is not the case, empty images will be placed in the output stacks were missing files were encountered.
+2. Line 6 needs to be updated with the number of tif files in one of the data directories. It is assumed the the number of files in each data directory is the same - if this is not the case, empty images will be placed in the output stacks were missing files were encountered:
 ```shell
 #SBATCH --array=0-<number of tif files in one of the data directories>
 ```
-Finally, line 13 needs to updated with the path to your FIJI installation, the path to `build_stacks.ijm` and the path to your output directory for the compiled stacks:
+3. Line 13 needs to updated with the path to your output directory where the assembled stacks will be saved:
 ```shell
-<path to fiji installation>/ImageJ-linux64 -Xmx4G -- --headless --console -macro "<path to macro>/build_stacks.ijm" "<path to output directory>,${files[$SLURM_ARRAY_TASK_ID]}"
+outputDir=(<path to output directory>)
+```
+4. Line 15 needs to updated with the path to your FIJI installation:
+```shell
+fijiDir=(<path to fiji installation>)
 ```
 If everything runs successfully, then you should see TIF stacks appearing in your output directory.
 
