@@ -65,7 +65,7 @@ If everything runs successfully, then you should see TIF stacks appearing in you
 
 ### Step 2: Estimate XY-misalignment using reference channel
 
-Run `estimate_correction.sh` to register a reference channel (usually DAPI). This will require updating...
+Run `estimate_correction.sh` to estimate the misalignment in a reference channel (usually DAPI). This will require updating...
 * line 11 to point to the output directory from Step 1:
   ```shell
   inputDir=(<path to output directory from Step 1>)
@@ -85,11 +85,24 @@ Run `estimate_correction.sh` to register a reference channel (usually DAPI). Thi
 
 If this step runs successfully, you should see folders of results appearing in your output directory from Step 1, including settings files and aligned stacks (for the reference channel).
 
-### Step 3: Apply XY-alignment calculated in Step 2 to remaining channels
+### Step 3: Align all stacks using outputs from Step 2
 
-Run `apply_correction.sh` to register all remaining channels. This will require updating...
-* line 10 to point to the output directory from Step 1
-* line 6 to include the number of tif files in the output directory from Step 1
-* line 29 to point to your FIJI installation and the path to a results directory.
+Run `apply_correction.sh` to register all stacks. This will require updating...
+* line 11 to point to the output directory from Step 1:
+  ```shell
+  inputDir=(<path to output directory from Step 1>)
+  ```
+* line 6 to include the number of tif files in the output directory from Step 1:
+  ```shell
+  #SBATCH --array=0-<number of tif stacks compiled in Step 1>
+  ```
+* line 13 to point to your FIJI installation:
+  ```shell
+  fijiDir=(<path to fiji installation>)
+  ```
+* Line 15 to point to your output directory where the alligned stacks will be saved:
+  ```shell
+  outputDir=(<path to output directory>)
+  ```
 
-If this step runs successfully, you should see TIF stacks appearing in the specified results directory.
+If this step runs successfully, you should see TIF stacks appearing in the specified output directory.
