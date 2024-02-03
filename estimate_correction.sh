@@ -3,12 +3,12 @@
 #SBATCH --job-name=drift_estimation
 #SBATCH --ntasks=1
 #SBATCH --time=1:00:00
-#SBATCH --array=0-1151
+#SBATCH --array=0-2
 #SBATCH --partition=cpu
 #SBATCH --mem=4G
 
 # The input directory should contain a series of compiled TIF stacks (the output from Step 1)
-inputDir=(/nemo/stp/lm/working/barryd/Working_Data/Santos/Elias/Compiled Stacks)
+inputDir=(/nemo/stp/lm/working/barryd/hpc/test/stacks)
 # The FIJI directory should, as the name suggests, point to the location of your FIJI installation
 fijiDir=(/nemo/stp/lm/working/barryd/hpc/java/fiji)
 
