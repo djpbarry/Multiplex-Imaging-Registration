@@ -1,3 +1,5 @@
+![Commit activity](https://img.shields.io/github/commit-activity/y/djpbarry/Multiplex-Imaging-Registration?style=plastic) ![GitHub](https://img.shields.io/github/license/djpbarry/Multiplex-Imaging-Registration?color=green&style=plastic)
+
 # Parallel 4i Imaging Registration
 
 A collection of scripts designed to perform registration on a large amount of image data in parallel on a HPC cluster.
