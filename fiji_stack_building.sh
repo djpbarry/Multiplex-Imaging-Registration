@@ -4,15 +4,15 @@
 #SBATCH --ntasks=1
 #SBATCH --time=1:00:00
 #SBATCH --array=0-9
-#SBATCH --partition=cpu
+#SBATCH --partition=ncpu
 #SBATCH --mem=4G
 
 # The parent directory should point to the top level directory where all your images are contained
-parentDir=(/nemo/stp/lm/inputs/santoss/Elias\ Copin/Multiplexed_imaging_data)
+parentDir=(/nemo/project/proj-lm-share/santoss/Multiplexed_imaging_data)
 # The output directory is where the compiled stacks will appear
-outputDir=(/nemo/stp/lm/working/barryd/hpc/test/stacks)
+outputDir=(/nemo/project/proj-lm-share/santoss/Test_Output)
 # The FIJI directory should, as the name suggests, point to the location of your FIJI installation
-fijiDir=(/nemo/stp/lm/working/barryd/hpc/java/fiji)
+fijiDir=(/nemo/project/proj-lm-share/santoss/fiji)
 
 childDirs=("$parentDir"/*)
 
