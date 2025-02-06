@@ -74,6 +74,11 @@ for (p = 0; p < lengthOf(files); p++) {
 	getDimensions(width, height, channels, slices, frames);
 	thisTitle = getTitle();
 	filename_no_extension = File.getNameWithoutExtension(files[p]);
+	Corrected_path_xy = results_path + File.separator + filename_no_extension+"_xyCorrected";  
+	if(File.exists(Corrected_path_xy + ".tiff")){
+		print("Output already exists - exiting");
+		exit();
+	}
 	
 	// 2D module
 	
@@ -101,7 +106,7 @@ for (p = 0; p < lengthOf(files); p++) {
 			//swap channels to time	
 			run("Re-order Hyperstack ...", "channels=[Frames (t)] slices=[Slices (z)] frames=[Channels (c)]");
 			
-			Corrected_path_xy = results_path + File.separator + filename_no_extension+"_xyCorrected";  
+			//Corrected_path_xy = results_path + File.separator + filename_no_extension+"_xyCorrected";  
 			saveAs("Tiff", Corrected_path_xy);
 			close("*");
 		}

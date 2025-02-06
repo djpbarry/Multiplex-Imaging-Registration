@@ -47,6 +47,10 @@ print("Done");
 setBatchMode(false);
 
 function buildStack(inputDir, rounds, refFile, outputDir){
+	if(File.exists(outputDir + File.separator() + refFile)){
+		print("Output already exists - exiting.");
+		return;
+	}
 	frames = newArray(0);
 	for (r = 0; r < rounds.length; r++) {
 		fullFilePath = inputDir + File.separator() + rounds[r] + File.separator() + "data" + File.separator() + refFile;
