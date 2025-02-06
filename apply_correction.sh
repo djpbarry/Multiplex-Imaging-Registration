@@ -3,16 +3,16 @@
 #SBATCH --job-name=drift_correction
 #SBATCH --ntasks=1
 #SBATCH --time=1:00:00
-#SBATCH --array=0-4607
+#SBATCH --array=0-9
 #SBATCH --partition=ncpu
 #SBATCH --mem=4G
 
 # The input directory should contain a series of compiled TIF stacks (the output from Step 1)
-inputDir=(/nemo/project/proj-lm-share/santoss/Compiled_Stacks)
+inputDir=(/nemo/project/proj-lm-share/santoss/2025.02.06_Test/Compiled)
 # The FIJI directory should, as the name suggests, point to the location of your FIJI installation
 fijiDir=(/nemo/project/proj-lm-share/santoss/fiji)
 # The directory in which you want your fully aligned stacks to be saved
-outputDir=(/nemo/project/proj-lm-share/santoss/Aligned_Stacks)
+outputDir=(/nemo/project/proj-lm-share/santoss/2025.02.06_Test/Aligned)
 
 files=("$inputDir"/*.tif)
 

@@ -10,7 +10,7 @@
 # The parent directory should point to the top level directory where all your images are contained
 parentDir=(/nemo/project/proj-lm-share/santoss/Multiplexed_imaging_data)
 # The output directory is where the compiled stacks will appear
-outputDir=(/nemo/project/proj-lm-share/santoss/Test_Output)
+outputDir=(/nemo/project/proj-lm-share/santoss/2025.02.06_Test/Compiled)
 # The FIJI directory should, as the name suggests, point to the location of your FIJI installation
 fijiDir=(/nemo/project/proj-lm-share/santoss/fiji)
 
