@@ -15,4 +15,4 @@ fijiDir=(/nemo/project/proj-lm-share/santoss/fiji)
 files=("$inputDir"/*DAPI*.tif)
 
 ml Java/1.8
-"$fijiDir"/ImageJ-linux64 -Xmx4G -- --ij2 --headless --console --run "$fijiDir"/plugins/Fast4DReg/channel_estimate+apply.ijm 'exp_nro=001,files='\""${files[$SLURM_ARRAY_TASK_ID]}"\"''
+"$fijiDir"/ImageJ-linux64 -Xmx4G -- --ij2 --headless --console --run "./channel_estimate+apply.ijm 'exp_nro=001,files='\""${files[$SLURM_ARRAY_TASK_ID]}"\"''

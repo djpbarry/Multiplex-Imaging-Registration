@@ -36,48 +36,31 @@ run("Collect Garbage");
 
 
 //// give experiment number
-//#@ Integer (label="Experiment number", value=001, style="format:000") exp_nro ;
-var exp_nro = "001";
+#@ Integer (label="Experiment number", value=001, style="format:000") exp_nro ;
 //
 //// select file to be corrected
-//#@ File[] (label="Select the file(s) to be corrected") files ;
+#@ File[] (label="Select the file(s) to be corrected") files ;
 //
 ////settings for xy-drift correction
-//#@ String  (value="-----------------------------------------------------------------------------", visibility="MESSAGE") hint1;
-//#@ boolean (label = "<html><b>xy-drift correction</b></html>") XY_registration ; 
-var XY_registration = true;
-//#@ String(label = "Projection type", choices={"Max Intensity","Average Intensity"}, style="listBox") projection_type_xy ;
-var projection_type_xy = "Max Intensity";
-//#@ Integer (label="Time averaging (default: 100, 1 - disables)", min=1, max=100, style="spinner") time_xy ;
-var time_xy = 1;
-//#@ Integer (label="Maximum expected drift (pixels, 0 - auto)", min=0, max=auto, style="spinner") max_xy ;
-var max_xy = 0;
-//#@ String (label = "Reference frame", choices={"first frame (default, better for fixed)" , "previous frame (better for live)"}, style="listBox") reference_xy ;
-var reference_xy = "first frame (default, better for fixed)";
-//#@ boolean (label = "Crop output") crop_output ; 
-var crop_output = false;
+#@ String  (value="-----------------------------------------------------------------------------", visibility="MESSAGE") hint1;
+#@ boolean (label = "<html><b>xy-drift correction</b></html>") XY_registration ; 
+#@ String(label = "Projection type", choices={"Max Intensity","Average Intensity"}, style="listBox") projection_type_xy ;
+#@ Integer (label="Time averaging (default: 100, 1 - disables)", min=1, max=100, style="spinner") time_xy ;
+#@ Integer (label="Maximum expected drift (pixels, 0 - auto)", min=0, max=auto, style="spinner") max_xy ;
+#@ String (label = "Reference frame", choices={"first frame (default, better for fixed)" , "previous frame (better for live)"}, style="listBox") reference_xy ;
+#@ boolean (label = "Crop output") crop_output ; 
 //
 ////settings for z-drift correction
-//#@ String  (value="-----------------------------------------------------------------------------", visibility="MESSAGE") hint3;
-//#@ boolean (label = "<html><b>z-drift correction</b></html>") z_registration ; 
-var z_registration = false;
-//#@ String(label = "Projection type", choices={"Max Intensity","Average Intensity"}, style="listBox") projection_type_z ;
-var projection_type_z = "Max Intensity";
-//#@ String(label = "Reslice mode", choices={"Top","Left"}, style="listBox") reslice_mode ;
-var reslice_mode = "Top";
-//#@ Integer (label="Time averaging (default 100, 1 - disables)", min=1, max=100, style="spinner") time_z ;
-var time_z = 1;
-//#@ Integer (label="Maximum expected drift (pixels, 0 - auto)", min=0, max=auto, style="spinner") max_z ;
-var max_z = 0;
-//#@ String (label = "Reference frame", choices={"first frame (default, better for fixed)" , "previous frame (better for live)"}, style="listBox") reference_z ;
-var reference_z = "first frame (default, better for fixed)";
-//#@ boolean (label = "Extend stack to fit") extend_stack_to_fit ; 
-var extend_stack_to_fit = false;
-//#@ boolean (label = "Save RAM") ram_conservative_mode ; 
-var ram_conservative_mode = false;
-//#@ String  (value="-----------------------------------------------------------------------------", visibility="MESSAGE") hint4;
-
-files = split(getArgument(), "'");
+#@ String  (value="-----------------------------------------------------------------------------", visibility="MESSAGE") hint3;
+#@ boolean (label = "<html><b>z-drift correction</b></html>") z_registration ; 
+#@ String(label = "Projection type", choices={"Max Intensity","Average Intensity"}, style="listBox") projection_type_z ;
+#@ String(label = "Reslice mode", choices={"Top","Left"}, style="listBox") reslice_mode ;
+#@ Integer (label="Time averaging (default 100, 1 - disables)", min=1, max=100, style="spinner") time_z ;
+#@ Integer (label="Maximum expected drift (pixels, 0 - auto)", min=0, max=auto, style="spinner") max_z ;
+#@ String (label = "Reference frame", choices={"first frame (default, better for fixed)" , "previous frame (better for live)"}, style="listBox") reference_z ;
+#@ boolean (label = "Extend stack to fit") extend_stack_to_fit ; 
+#@ boolean (label = "Save RAM") ram_conservative_mode ; 
+#@ String  (value="-----------------------------------------------------------------------------", visibility="MESSAGE") hint4;
 
 // get time stamp
 MonthNames = newArray("Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec");  
